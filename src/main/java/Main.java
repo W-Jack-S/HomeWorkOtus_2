@@ -1,95 +1,99 @@
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Scanner;
 
+
 public class Main {
-    public static void main(String[] args) {
+    public static String enteredText, name, color;
+    public static int age, weight;
 
-        ArrayList<String> animal = new ArrayList();
+    public static boolean exit;
+    public static void main(String[] args) throws Exception{
 
-        Scanner scan = new Scanner(System.in);
+        ArrayList<Animal> animal = new ArrayList();
 
-        String enteredText = scan.nextLine().toLowerCase().trim();
+        Scanner scan1 = new Scanner(System.in);
+        Scanner scan2 = new Scanner(System.in);
+        Scanner scan3 = new Scanner(System.in);
+        Scanner scan4 = new Scanner(System.in);
+        Scanner scan5 = new Scanner(System.in);
+        Scanner scan6 = new Scanner(System.in);
 
+        do{
+            try {
+                System.out.println("Для добавления животного введите ADD\nДля вывода информации о всех животных введите LIST\nДля вывода из программы введите EXIT");
+                enteredText = scan1.nextLine().toLowerCase().trim();
+                switch (enteredText) {
+                    case "add":
+                        System.out.println("Какое животное вы хотите добавить? Можно выбрать из Dog, Cat, Duck");
+                        String ani = scan2.nextLine().toLowerCase().trim();
+                        switch (ani) {
+                            case "cat":
+                                System.out.println("Как зовут ваше животное?");
+                                name = scan3.nextLine().toLowerCase().trim();
+                                System.out.println("Сколько лет вашему животному?");
+                                age = scan4.nextInt();
+                                System.out.println("Сколько весит ваше животное?");
+                                weight = scan5.nextInt();
+                                System.out.println("Какого цвета ваше животное?");
+                                color = scan6.nextLine().toLowerCase().trim();
+                                Cat cat = new Cat(name, age, weight, color);
+                                cat.setAge(age);
+                                animal.add(cat);
+                                cat.say();
+                                break;
 
+                            case "dog":
+                                System.out.println("Как зовут ваше животное?");
+                                name = scan3.nextLine().toLowerCase().trim();
+                                System.out.println("Сколько лет вашему животному?");
+                                age = scan4.nextInt();
+                                System.out.println("Сколько весит ваше животное?");
+                                weight = scan5.nextInt();
+                                System.out.println("Какого цвета ваше животное?");
+                                color = scan6.nextLine().toLowerCase().trim();
+                                Dog dog = new Dog(name, age, weight, color);
+                                dog.setAge(age);
+                                animal.add(dog);
+                                dog.say();
+                                break;
 
-            switch (enteredText) {
-                case "add":
-                    System.out.println("add");
-                    String ani = scan.nextLine().toLowerCase().trim();
-                    switch (ani) {
-                        case "cat":
-                            Cat cat = new Cat();
-                            cat.setName(scan.nextLine().toLowerCase().trim());
-                            System.out.println(cat.getName());
-                            cat.setAge(scan.nextInt());
-                            System.out.println(cat.getAge());
-                            cat.setWeight(scan.nextInt());
-                            System.out.println(cat.getWeight());
-                            cat.setColor(scan.nextLine().toLowerCase().trim());
-                            System.out.println(cat.getColor());
-                            break;
+                            case "duck":
+                                System.out.println("Как зовут ваше животное?");
+                                name = scan3.nextLine().toLowerCase().trim();
+                                System.out.println("Сколько лет вашему животному?");
+                                age = scan4.nextInt();
+                                System.out.println("Сколько весит ваше животное?");
+                                weight = scan5.nextInt();
+                                System.out.println("Какого цвета ваше животное?");
+                                color = scan6.nextLine().toLowerCase().trim();
+                                Duck duck = new Duck(name, age, weight, color);
+                                duck.setAge(age);
+                                animal.add(duck);
+                                duck.say();
+                                break;
 
-                        case "dog":
-                            Dog dog = new Dog();
-                            dog.setName(scan.nextLine().toLowerCase().trim());
-                            System.out.println(dog.getName());
-                            dog.setAge(scan.nextInt());
-                            System.out.println(dog.getAge());
-                            dog.setWeight(scan.nextInt());
-                            System.out.println(dog.getWeight());
-                            dog.setColor(scan.nextLine().toLowerCase().trim());
-                            System.out.println(dog.getColor());
-                            break;
+                            default:
+                                System.out.println("Неизвестное животное, допустимо только cat, dog, duck");
+                        }
+                        break;
 
-                       /* case "duck":
-                            Dog  = new Dog();
-                            dog.setName(scan.nextLine().toLowerCase().trim());
-                            System.out.println(dog.getName());
-                            dog.setAge(scan.nextInt());
-                            System.out.println(dog.getAge());
-                            dog.setWeight(scan.nextInt());
-                            System.out.println(dog.getWeight());
-                            dog.setColor(scan.nextLine().toLowerCase().trim());
-                            System.out.println(dog.getColor());
-                            break;*/
-
-
-                    }
-                    break;
-                case "list":
-                    System.out.println("list");
-                    break;
-                case "exit":
-                    System.out.println("exit");
-                    break;
-                default:
-                    System.out.println("error");
-                    break;
+                    case "list":
+                        System.out.println(animal);
+                        break;
+                    case "exit":
+                        exit = true;
+                        break;
+                    default:
+                        System.out.println("Неизвестная команда, допустимо только ADD, DOG, DUCK");
+                }
+            }catch (Exception e) {
+                System.out.println("Ошибка ввода, начните заново");
             }
 
-
-
-        //   dog.setAge(2);
-        // System.out.println(dog);
-
-
-
-/*        Animal dog = new Animal();
-        dog.setName("Бобик");
-        dog.setAge(5);
-        dog.setWeight(15);
-        dog.setColor("чёрный");
-        System.out.println(dog);
-
-        for (int n = 0; n < 150; n++) {
-            dog.setAge(n);
-            System.out.println(dog);
-        }*/
-
-        // switch {
-        //   dog.setAge(2);
-        // System.out.println(dog);
+        }while (exit != true);
     }
+
+
 }
+
 

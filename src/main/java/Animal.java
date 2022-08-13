@@ -10,6 +10,13 @@ public class Animal {
     public String color;
     public String year;
 
+    public Animal(String name, int age, int weight, String color) {
+        this.name = name;
+        this.age = age;
+        this.weight = weight;
+        this.color = color;
+    }
+
     //Методы Getter and Setter
 
     public String getName() {
@@ -74,7 +81,7 @@ public class Animal {
     //Переопределите метод toString
     @Override
     public String toString() {
-        return "Привет! меня зовут " + getName() + " мне " + getAge() + " " + year + ", я вешу " + getWeight() + " кг, мой цвет " + getColor();
+        return "\nПривет! меня зовут " + getName() + " мне " + getAge() + " " + year + ", я вешу " + getWeight() + " кг, мой цвет " + getColor();
     }
 
 
