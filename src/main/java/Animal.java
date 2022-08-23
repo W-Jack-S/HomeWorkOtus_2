@@ -34,11 +34,7 @@ public class Animal {
     public void setAge(int age) {
         this.age = age;
         //лет или год, или года должно быть выбрано в зависимости от числа
-        if ((age%10 == 1) && (age%100 != 11)) {
-            year = "год";
-        } else if ((age%10 > 1) && (age%10 < 5) && (age%100 != 12) && (age%100 != 13) && (age%100 != 14)){
-            year = "года";
-        } else {year = "лет";}
+
 
     }
 
@@ -78,10 +74,21 @@ public class Animal {
         System.out.print("Я ем ");
     }
 
+
+
     //Переопределите метод toString
     @Override
     public String toString() {
-        return "\nПривет! меня зовут " + getName() + " мне " + getAge() + " " + year + ", я вешу " + getWeight() + " кг, мой цвет " + getColor();
+        return "\nПривет! меня зовут " + getName() + " мне " + getAge() + " " + year(age) + ", я вешу " + getWeight() + " кг, мой цвет " + getColor();
+    }
+
+    public String year(int age)
+    {
+        if ((age%10 == 1) && (age%100 != 11)) {
+            return "год";
+        } else if ((age%10 > 1) && (age%10 < 5) && (age%100 != 12) && (age%100 != 13) && (age%100 != 14)){
+            return "года";
+        } else return "лет";
     }
 
 
